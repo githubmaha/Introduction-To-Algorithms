@@ -2,8 +2,15 @@ package com.mahamitra.implementations.InspectionSort;
 
 import com.mahamitra.implementations.Utils.SortAlgorithmInteger;
 
-public class InspectionSort implements SortAlgorithmInteger {
+public class InsertionSort implements SortAlgorithmInteger {
 
+    /**
+     * Works by taking the number at the current index and swapping that
+     * with the numbers before it until the original number is sorted
+     *
+     * Time: O(n^2)
+     * Space: O(n)
+     */
     @Override
     public int[] run(int[] input) {
         for (int i = 0; i < input.length; ++i) {
@@ -18,7 +25,7 @@ public class InspectionSort implements SortAlgorithmInteger {
                 }
             }
         }
-        
+
         return input;
     }
 }
