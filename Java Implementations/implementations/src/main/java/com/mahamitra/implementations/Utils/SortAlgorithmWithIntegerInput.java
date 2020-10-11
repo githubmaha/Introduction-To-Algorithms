@@ -1,7 +1,7 @@
 package com.mahamitra.implementations.Utils;
 
 /**
- * SortAlgorithm
+ * Sort algorithm interface for algorithms with integer input
  */
 public interface SortAlgorithmWithIntegerInput {
 

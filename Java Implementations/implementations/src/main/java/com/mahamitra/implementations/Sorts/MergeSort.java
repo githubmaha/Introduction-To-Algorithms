@@ -4,9 +4,16 @@ import java.util.Arrays;
 
 import com.mahamitra.implementations.Utils.SortAlgorithmWithIntegerInput;
 
+/**
+ * Works by dividing the array by 2 until you are left with arrays the size of 1.
+ * Then it takes the smaller arrays and merges them by sorting them into 1 array
+ *
+ * Time: O(n log n)
+ * Space: O(n log n) for thread based and O(n) for non-thread based
+ */
 public class MergeSort implements SortAlgorithmWithIntegerInput {
 
-    int[] merge(int[] arr1, int[] arr2) {
+    protected int[] merge(int[] arr1, int[] arr2) {
         int[] merged = new int[arr1.length + arr2.length];
 
         int index1 = 0;
