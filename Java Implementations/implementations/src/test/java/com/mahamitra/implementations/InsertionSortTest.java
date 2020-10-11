@@ -2,11 +2,13 @@ package com.mahamitra.implementations;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-import com.mahamitra.implementations.InspectionSort.InsertionSort;
+import com.mahamitra.implementations.Sorts.InsertionSort;
 
 import org.junit.jupiter.api.Test;
 
 public class InsertionSortTest implements IntegerSortTest {
+
+   @Override
    @Test
     public void testRun() {
         InsertionSort inspectionSort = new InsertionSort();

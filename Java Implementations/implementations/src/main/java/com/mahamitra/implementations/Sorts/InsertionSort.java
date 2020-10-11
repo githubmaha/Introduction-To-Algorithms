@@ -1,8 +1,8 @@
-package com.mahamitra.implementations.InspectionSort;
+package com.mahamitra.implementations.Sorts;
 
-import com.mahamitra.implementations.Utils.SortAlgorithmInteger;
+import com.mahamitra.implementations.Utils.SortAlgorithmWithIntegerInput;
 
-public class InsertionSort implements SortAlgorithmInteger {
+public class InsertionSort implements SortAlgorithmWithIntegerInput {
 
     /**
      * Works by taking the number at the current index and swapping that
