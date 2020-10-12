@@ -7,11 +7,16 @@ import java.util.List;
 import com.mahamitra.implementations.DataStructures.Trees.Utils.AbstractBinaryTree;
 
 public class SimpleBinaryTree extends AbstractBinaryTree {
+    private interface ArrayRepresentationAlgorithm {
+        <T> void getRepresentation(List<BinaryNode> nodes, List<T> arrayRepresentation);
+    }
+
     public SimpleBinaryTree(BinaryNode root) {
         this.root = root;
     }
 
-    private void getArrayRepresentation(List<BinaryNode> nodes, List<Integer> arrayRepresentation) {
+
+    private <T> void getNodeArrayRepresentation(List<BinaryNode> nodes, List<T> arrayRepresentation) {
         if (nodes.size() == 0) {
             return;
         }
@@ -19,7 +24,7 @@ public class SimpleBinaryTree extends AbstractBinaryTree {
         List<BinaryNode> childNodes = new ArrayList<BinaryNode>();
 
         for (BinaryNode node : nodes) {
-            arrayRepresentation.add(node.getData());
+            arrayRepresentation.add((T)node);
 
             if (node.getChild1() != null) {
                 childNodes.add(node.getChild1());
@@ -30,13 +35,44 @@ public class SimpleBinaryTree extends AbstractBinaryTree {
             }
         }
 
-        getArrayRepresentation(childNodes, arrayRepresentation);
+        getNodeArrayRepresentation(childNodes, arrayRepresentation);
+    }
+
+
+    private <T> void getDataArrayRepresentation(List<BinaryNode> nodes, List<T> arrayRepresentation) {
+        if (nodes.size() == 0) {
+            return;
+        }
+
+        List<BinaryNode> childNodes = new ArrayList<BinaryNode>();
+
+        for (BinaryNode node : nodes) {
+            arrayRepresentation.add((T)node.getData());
+
+            if (node.getChild1() != null) {
+                childNodes.add(node.getChild1());
+            }
+
+            if (node.getChild2() != null) {
+                childNodes.add(node.getChild2());
+            }
+        }
+
+        getDataArrayRepresentation(childNodes, arrayRepresentation);
     }
 
     @Override
-    public List<Integer> getArrayRepresentation() {
-        List<Integer> arrayRepresentation = new ArrayList<Integer>();
-        getArrayRepresentation(Arrays.asList(root), arrayRepresentation);
+    public <T> List<T> getArrayRepresentation(Class<T> type){
+        ArrayRepresentationAlgorithm arrayRepresentationAlgorithm;
+
+        if (type.equals(BinaryNode.class)) {
+            arrayRepresentationAlgorithm = this::getNodeArrayRepresentation;
+        } else {
+            arrayRepresentationAlgorithm = this::getDataArrayRepresentation;
+        }
+
+        List<T> arrayRepresentation = new ArrayList<T>();
+        arrayRepresentationAlgorithm.getRepresentation(Arrays.asList(root), arrayRepresentation);
         return arrayRepresentation;
     }
 }

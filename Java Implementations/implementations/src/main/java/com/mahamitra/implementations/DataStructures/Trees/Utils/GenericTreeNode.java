@@ -1,8 +1,11 @@
 package com.mahamitra.implementations.DataStructures.Trees.Utils;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
-public abstract class GenericNode<T> {
+@Setter
+public abstract class GenericTreeNode<T> {
+    GenericTreeNode<T> parent;
     protected T data;
 }

@@ -1,13 +1,13 @@
 package com.mahamitra.implementations.DataStructures.Trees.SimpleBinaryTree;
 
-import com.mahamitra.implementations.DataStructures.Trees.Utils.GenericNode;
+import com.mahamitra.implementations.DataStructures.Trees.Utils.GenericTreeNode;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class BinaryNode extends GenericNode<Integer> {
+public class BinaryNode extends GenericTreeNode<Integer> {
     BinaryNode child1;
     BinaryNode child2;
 
