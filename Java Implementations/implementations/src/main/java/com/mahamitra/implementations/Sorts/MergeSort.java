@@ -9,7 +9,7 @@ import com.mahamitra.implementations.Utils.SortAlgorithmWithIntegerInput;
  * Then it takes the smaller arrays and merges them by sorting them into 1 array
  *
  * Time: O(n log n)
- * Space: O(n log n) for thread based and O(n) for non-thread based
+ * Space: O(n log n) for thread based and O(3n) for non-thread based
  */
 public class MergeSort implements SortAlgorithmWithIntegerInput {
 
@@ -32,19 +32,11 @@ public class MergeSort implements SortAlgorithmWithIntegerInput {
 
     @Override
     public int[] run(int[] input) {
-        if (input.length == 1) {
+        if (input.length <= 1) {
             return input;
         }
 
-        int halfIndex;
-
-        if (input.length % 2 == 0) {
-            halfIndex = input.length / 2;
-        } else {
-            halfIndex = (input.length / 2) + 1;
-        }
-
-        return merge(run(Arrays.copyOfRange(input, 0, halfIndex)), run(Arrays.copyOfRange(input, halfIndex, input.length)));
+        return merge(run(Arrays.copyOfRange(input, 0, input.length / 2)), run(Arrays.copyOfRange(input, input.length / 2, input.length)));
     }
 
 }
