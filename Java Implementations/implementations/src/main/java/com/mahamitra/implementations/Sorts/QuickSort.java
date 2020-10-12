@@ -2,9 +2,13 @@ package com.mahamitra.implementations.Sorts;
 
 import com.mahamitra.implementations.Utils.ArrayUtils;
 import com.mahamitra.implementations.Utils.SortAlgorithmWithIntegerInput;
-import com.mahamitra.implementations.Utils.Lambdas.QuickSortPivotSortAlgorithm;
 
 public class QuickSort implements SortAlgorithmWithIntegerInput{
+    @FunctionalInterface
+    private interface QuickSortPivotSortAlgorithm {
+        int getPivot(int[] arr, int start, int end);
+    }
+
     QuickSortPivotSortAlgorithm pivotAlgorithm;
 
     public QuickSort(String pivotAlgorithmName) {
