@@ -5,11 +5,11 @@ import com.mahamitra.implementations.Utils.SortAlgorithmWithIntegerInput;
 
 public class QuickSort implements SortAlgorithmWithIntegerInput{
     @FunctionalInterface
-    private interface QuickSortPivotSortAlgorithm {
+    private interface PivotSortAlgorithm {
         int getPivot(int[] arr, int start, int end);
     }
 
-    QuickSortPivotSortAlgorithm pivotAlgorithm;
+    PivotSortAlgorithm pivotAlgorithm;
 
     public QuickSort(String pivotAlgorithmName) {
         if (pivotAlgorithmName.equals("frontBack")) {
