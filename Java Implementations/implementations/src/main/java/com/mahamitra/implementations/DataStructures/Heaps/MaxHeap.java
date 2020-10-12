@@ -5,6 +5,10 @@ import com.mahamitra.implementations.DataStructures.Trees.SimpleBinaryTree.Simpl
 
 public class MaxHeap extends SimpleBinaryTree implements Heap {
 
+    public MaxHeap(BinaryNode root) {
+        super(root);
+    }
+
     @Override
     public BinaryNode add(int data) {
         if (root == null) {
@@ -14,5 +18,4 @@ public class MaxHeap extends SimpleBinaryTree implements Heap {
 
         return root;
     }
-
 }

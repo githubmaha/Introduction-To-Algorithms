@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import com.mahamitra.implementations.Sorts.MergeSort;
 import com.mahamitra.implementations.Sorts.MergeSortThreadOptimize;
+import com.mahamitra.implementations.Utils.IntegerSortTest;
 
 import org.junit.jupiter.api.Test;
 

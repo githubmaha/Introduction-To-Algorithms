@@ -3,6 +3,7 @@ package com.mahamitra.implementations;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import com.mahamitra.implementations.Sorts.InsertionSort;
+import com.mahamitra.implementations.Utils.IntegerSortTest;
 
 import org.junit.jupiter.api.Test;
 
