@@ -11,8 +11,22 @@ public class QuickSort implements SortAlgorithmWithIntegerInput{
         if (pivotAlgorithmName.equals("frontBack")) {
             pivotAlgorithm = this::pivotSortFrontBack;
         } else {
-            pivotAlgorithm = this::pivotSortFrontBack;
+            pivotAlgorithm = this::pivotSortIntroToAlgo;
         }
+    }
+
+    private int pivotSortIntroToAlgo(int[] arr, int start, int end) {
+        int lowerBound = start;
+
+        for(int upperBound = start; upperBound < end - 1; ++upperBound) {
+            if (arr[upperBound] < arr[end - 1]) {
+                ArrayUtils.swap(arr, lowerBound++, upperBound);
+            }
+        }
+
+        ArrayUtils.swap(arr, lowerBound, end - 1);
+
+        return lowerBound;
     }
 
     private int pivotSortFrontBack(int[] arr, int start, int end) {
@@ -43,7 +57,7 @@ public class QuickSort implements SortAlgorithmWithIntegerInput{
             return;
         }
 
-        int pivot = pivotAlgorithm.run(input, start, end);
+        int pivot = pivotAlgorithm.getPivot(input, start, end);
         run(input, start, pivot);
         run(input, pivot + 1, end);
     }
