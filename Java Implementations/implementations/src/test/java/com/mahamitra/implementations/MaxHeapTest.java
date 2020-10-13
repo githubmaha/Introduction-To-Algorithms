@@ -62,4 +62,32 @@ public class MaxHeapTest extends AbstractHeapTest {
 
         assertEquals(true, maxHeapExpected.equals(maxHeap.heap));
     }
+
+    @Test
+    public void testDelete() {
+        MaxHeap maxHeap = new MaxHeap(50);
+        maxHeap.add(31, 25, 10, 12, 20, 19);
+        maxHeap.delete(maxHeap.heap.size() - 1);
+
+        maxHeapExpected.remove(maxHeapExpected.size() - 1);
+
+        assertEquals(true, maxHeapExpected.equals(maxHeap.heap));
+
+        maxHeap.delete(2);
+        ArrayUtils.swap(maxHeapExpected, 2, 5);
+        maxHeapExpected.remove(5);
+
+        assertEquals(true, maxHeapExpected.equals(maxHeap.heap));
+    }
+
+    @Test
+    public void testDeleteMany() {
+        MaxHeap maxHeap = new MaxHeap(50);
+        maxHeap.add(31, 25, 10, 12, 20, 19);
+
+        maxHeap.delete(2, 0);
+        maxHeapExpected = Arrays.asList(31, 19, 20, 10, 12);
+
+        assertEquals(true, maxHeapExpected.equals(maxHeap.heap));
+    }
 }

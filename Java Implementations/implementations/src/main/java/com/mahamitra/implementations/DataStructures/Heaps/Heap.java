@@ -22,6 +22,14 @@ public abstract class Heap {
         return heap;
     }
 
+    public List<Integer> delete(int... data) {
+        for (int d : data) {
+            delete(d);
+        }
+
+        return heap;
+    }
+
     protected int getParentIndex(int childIndex) {
         return (childIndex - 1) / 2;
     }
