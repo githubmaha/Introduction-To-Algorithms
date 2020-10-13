@@ -6,6 +6,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public abstract class GenericTreeNode<T> {
-    GenericTreeNode<T> parent;
     protected T data;
 }

@@ -2,40 +2,38 @@ package com.mahamitra.implementations.DataStructures.Heaps;
 
 import java.util.List;
 
-import com.mahamitra.implementations.DataStructures.Trees.SimpleBinaryTree.BinaryTreeNode;
-import com.mahamitra.implementations.DataStructures.Trees.SimpleBinaryTree.SimpleBinaryTree;
+import com.mahamitra.implementations.Utils.ArrayUtils;
 
-public class MaxHeap extends SimpleBinaryTree implements Heap {
+public class MaxHeap extends Heap {
 
-    public MaxHeap(BinaryTreeNode root) {
-        super(root);
+    public MaxHeap(int rootData) {
+        super(rootData);
     }
 
     @Override
-    public BinaryTreeNode add(int data){
-        BinaryTreeNode newNode = new BinaryTreeNode(data);
-        if (root == null) {
-            root = newNode;
-            return root;
+    public List<Integer> add(int data){
+        if (heap.size() == 0) {
+            heap.add(data);
+            return heap;
         }
 
-        List<BinaryTreeNode> nodeArrayRepresentation = getArrayRepresentation(BinaryTreeNode.class);
-        nodeArrayRepresentation.add(newNode);
-        int newNodeIndex = nodeArrayRepresentation.size() - 1;
-        int parentIndex = newNodeIndex / 2;
+        heap.add(data);
+        int newNodeIndex = heap.size() - 1;
+        int parentIndex = getParentIndex(newNodeIndex);
 
-        while (nodeArrayRepresentation.get(parentIndex).getData() < nodeArrayRepresentation.get(newNodeIndex).getData()) {
-            swapData(nodeArrayRepresentation.get(parentIndex), nodeArrayRepresentation.get(newNodeIndex));
+        while (parentIndex >= 0 && heap.get(parentIndex) < heap.get(newNodeIndex)) {
+            ArrayUtils.swap(heap, parentIndex, newNodeIndex);
             newNodeIndex = parentIndex;
-            parentIndex = newNodeIndex / 2;
+            parentIndex = getParentIndex(parentIndex);
         }
 
-        return nodeArrayRepresentation.get(0);
+        return heap;
     }
 
     @Override
-    public BinaryTreeNode delete(int index) {
-        // TODO Auto-generated method stub
-        return null;
+    public List<Integer> delete(int indexToDelete) {
+        ArrayUtils.swap(heap, indexToDelete, heap.size() - 1);
+
+        return heap;
     }
 }
