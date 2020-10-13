@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
-import com.mahamitra.implementations.DataStructures.Trees.SimpleBinaryTree.BinaryNode;
+import com.mahamitra.implementations.DataStructures.Trees.SimpleBinaryTree.BinaryTreeNode;
 import com.mahamitra.implementations.DataStructures.Trees.SimpleBinaryTree.SimpleBinaryTree;
 import com.mahamitra.implementations.Utils.AbstractSimpleBinaryTreeTest;
 import com.mahamitra.implementations.Utils.BinaryTreeTest;
@@ -30,7 +30,7 @@ public class SimpleBinaryTreeTest extends AbstractSimpleBinaryTreeTest implement
     @Test
     public void testRunNodeArray() {
         SimpleBinaryTree simpleBinaryTree = new SimpleBinaryTree(root);
-        List<BinaryNode> representation = simpleBinaryTree.getArrayRepresentation(BinaryNode.class);
+        List<BinaryTreeNode> representation = simpleBinaryTree.getArrayRepresentation(BinaryTreeNode.class);
         assertEquals(true, nodeArrayRepresentation.equals(representation));
     }
 }

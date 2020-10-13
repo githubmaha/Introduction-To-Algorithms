@@ -8,22 +8,22 @@ import com.mahamitra.implementations.DataStructures.Trees.Utils.AbstractBinaryTr
 
 public class SimpleBinaryTree extends AbstractBinaryTree {
     private interface ArrayRepresentationAlgorithm {
-        <T> void getRepresentation(List<BinaryNode> nodes, List<T> arrayRepresentation);
+        <T> void getRepresentation(List<BinaryTreeNode> nodes, List<T> arrayRepresentation);
     }
 
-    public SimpleBinaryTree(BinaryNode root) {
+    public SimpleBinaryTree(BinaryTreeNode root) {
         this.root = root;
     }
 
 
-    private <T> void getNodeArrayRepresentation(List<BinaryNode> nodes, List<T> arrayRepresentation) {
+    private <T> void getNodeArrayRepresentation(List<BinaryTreeNode> nodes, List<T> arrayRepresentation) {
         if (nodes.size() == 0) {
             return;
         }
 
-        List<BinaryNode> childNodes = new ArrayList<BinaryNode>();
+        List<BinaryTreeNode> childNodes = new ArrayList<BinaryTreeNode>();
 
-        for (BinaryNode node : nodes) {
+        for (BinaryTreeNode node : nodes) {
             arrayRepresentation.add((T)node);
 
             if (node.getChild1() != null) {
@@ -39,14 +39,14 @@ public class SimpleBinaryTree extends AbstractBinaryTree {
     }
 
 
-    private <T> void getDataArrayRepresentation(List<BinaryNode> nodes, List<T> arrayRepresentation) {
+    private <T> void getDataArrayRepresentation(List<BinaryTreeNode> nodes, List<T> arrayRepresentation) {
         if (nodes.size() == 0) {
             return;
         }
 
-        List<BinaryNode> childNodes = new ArrayList<BinaryNode>();
+        List<BinaryTreeNode> childNodes = new ArrayList<BinaryTreeNode>();
 
-        for (BinaryNode node : nodes) {
+        for (BinaryTreeNode node : nodes) {
             arrayRepresentation.add((T)node.getData());
 
             if (node.getChild1() != null) {
@@ -65,7 +65,7 @@ public class SimpleBinaryTree extends AbstractBinaryTree {
     public <T> List<T> getArrayRepresentation(Class<T> type){
         ArrayRepresentationAlgorithm arrayRepresentationAlgorithm;
 
-        if (type.equals(BinaryNode.class)) {
+        if (type.equals(BinaryTreeNode.class)) {
             arrayRepresentationAlgorithm = this::getNodeArrayRepresentation;
         } else {
             arrayRepresentationAlgorithm = this::getDataArrayRepresentation;

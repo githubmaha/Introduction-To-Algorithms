@@ -7,11 +7,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BinaryNode extends GenericTreeNode<Integer> {
-    BinaryNode child1;
-    BinaryNode child2;
+public class BinaryTreeNode extends GenericTreeNode<Integer> {
+    BinaryTreeNode child1;
+    BinaryTreeNode child2;
 
-    public BinaryNode(int data) {
+    public BinaryTreeNode(int data) {
         this.data = data;
         child1 = null;
         child2 = null;
