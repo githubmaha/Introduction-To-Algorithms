@@ -3,22 +3,24 @@ package com.mahamitra.implementations;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import com.mahamitra.implementations.Sorts.QuickSort;
+import com.mahamitra.implementations.Utils.AbstractIntegerSortTest;
 import com.mahamitra.implementations.Utils.IntegerSortTest;
 
 import org.junit.jupiter.api.Test;
 
-public class QuickSortTest implements IntegerSortTest {
+public class QuickSortTest extends AbstractIntegerSortTest implements IntegerSortTest {
 
     @Override
     @Test
     public void testRun() {
+        // TODO: Need to see why it fails on sorted array
         QuickSort quickSort = new QuickSort("frontBack");
-        assertArrayEquals(sortedArray, quickSort.run(new int[] {5, 2, 4, 6, 1, 3}));
+        assertArrayEquals(sortedArray, quickSort.run(unSortedArray));
     }
 
     @Test
     public void testRunNotIntroToAlgoBook() {
         QuickSort quickSort = new QuickSort("introToAlgoBook");
-        assertArrayEquals(sortedArray, quickSort.run(new int[] {5, 2, 4, 6, 1, 3}));
+        assertArrayEquals(sortedArray, quickSort.run(unSortedArray));
     }
 }

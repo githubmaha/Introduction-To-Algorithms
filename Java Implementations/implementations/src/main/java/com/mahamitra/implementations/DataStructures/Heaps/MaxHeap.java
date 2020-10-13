@@ -10,6 +10,10 @@ public class MaxHeap extends Heap {
         super(rootData);
     }
 
+    public MaxHeap(int[] input) {
+        super(input);
+    }
+
     private void bubbleUp(int currentIndex) {
         int parentIndex = getParentIndex(currentIndex);
         while (parentIndex >= 0 && heap.get(parentIndex) < heap.get(currentIndex)) {

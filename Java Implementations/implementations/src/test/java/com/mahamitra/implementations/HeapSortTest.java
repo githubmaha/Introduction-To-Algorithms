@@ -2,18 +2,19 @@ package com.mahamitra.implementations;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-import com.mahamitra.implementations.Sorts.InsertionSort;
+import com.mahamitra.implementations.Sorts.HeapSort;
 import com.mahamitra.implementations.Utils.AbstractIntegerSortTest;
 import com.mahamitra.implementations.Utils.IntegerSortTest;
 
 import org.junit.jupiter.api.Test;
 
-public class InsertionSortTest extends AbstractIntegerSortTest implements IntegerSortTest {
+public class HeapSortTest extends AbstractIntegerSortTest implements IntegerSortTest {
 
-   @Override
-   @Test
+    @Override
+    @Test
     public void testRun() {
-        InsertionSort inspectionSort = new InsertionSort();
-        assertArrayEquals(sortedArray, inspectionSort.run(unSortedArray));
+        HeapSort heapSort = new HeapSort();
+        assertArrayEquals(sortedArray, heapSort.run(unSortedArray));
     }
+
 }

@@ -11,6 +11,11 @@ public abstract class Heap {
         heap = new ArrayList<Integer>(Arrays.asList(rootData));
     }
 
+    protected Heap(int[] input) {
+        heap = new ArrayList<Integer>();
+        add(input);
+    }
+
     abstract public List<Integer> add(int data);
     abstract public List<Integer> delete(int indexToDelete);
 
