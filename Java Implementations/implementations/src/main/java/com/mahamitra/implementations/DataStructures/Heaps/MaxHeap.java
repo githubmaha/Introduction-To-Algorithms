@@ -2,9 +2,10 @@ package com.mahamitra.implementations.DataStructures.Heaps;
 
 import java.util.List;
 
+import com.mahamitra.implementations.DataStructures.Heaps.Utils.AbstractHeap;
 import com.mahamitra.implementations.Utils.ArrayUtils;
 
-public class MaxHeap extends Heap {
+public class MaxHeap extends AbstractHeap {
 
     public MaxHeap(int rootData) {
         super(rootData);

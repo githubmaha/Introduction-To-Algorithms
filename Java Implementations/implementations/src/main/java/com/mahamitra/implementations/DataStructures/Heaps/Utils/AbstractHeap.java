@@ -1,17 +1,17 @@
-package com.mahamitra.implementations.DataStructures.Heaps;
+package com.mahamitra.implementations.DataStructures.Heaps.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class Heap {
+public abstract class AbstractHeap {
     public List<Integer> heap;
 
-    protected Heap(int rootData) {
+    protected AbstractHeap(int rootData) {
         heap = new ArrayList<Integer>(Arrays.asList(rootData));
     }
 
-    protected Heap(int[] input) {
+    protected AbstractHeap(int[] input) {
         heap = new ArrayList<Integer>(heapify(input));
     }
 
@@ -35,6 +35,19 @@ public abstract class Heap {
         return heap;
     }
 
+    /**
+     * Assume the heap array is not zero-indexed, then we have the formula:
+     *
+     * parentIndex = childIndex / 2
+     *
+     * Since the array is zero-indexed, we would need to convert it to:
+     *
+     * parentIndex = (childIndex + 1) / 2
+     *
+     * But this gives us the parent index if the heap was not zero-indexed
+     * So to convert it back we subtract by 1, and by reducing that formula
+     * we get the final formula below
+     */
     protected int getParentIndex(int childIndex) {
         return (childIndex - 1) / 2;
     }
