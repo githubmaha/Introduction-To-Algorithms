@@ -3,7 +3,7 @@ package com.mahamitra.implementations.Utils;
 import org.junit.jupiter.api.BeforeEach;
 
 public abstract class AbstractIntegerSortTest {
-    protected int[] unSortedArray;
+    protected int[]  unSortedArray;
 
     @BeforeEach
     public void before() {

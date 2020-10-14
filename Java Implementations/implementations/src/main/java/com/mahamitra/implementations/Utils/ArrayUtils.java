@@ -10,12 +10,20 @@ public class ArrayUtils {
     }
 
     public static void swap(int[] arr, int index1, int index2) {
+        if (index1 == index2) {
+            return;
+        }
+
         int temp = arr[index1];
         arr[index1] = arr[index2];
         arr[index2] = temp;
     }
 
     public static <T> void swap(List<T> arr, int index1, int index2) {
+        if (index1 == index2) {
+            return;
+        }
+        
         T temp = arr.get(index1);
         arr.set(index1, arr.get(index2));
         arr.set(index2, temp);

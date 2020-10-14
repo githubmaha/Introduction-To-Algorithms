@@ -81,4 +81,15 @@ public class MaxHeap extends Heap {
 
         return heap;
     }
+
+    @Override
+    protected List<Integer> heapify(int... input) {
+        for (int i = input.length - 1; i >= 0; --i) {
+            int leftChildIndex = getLeftChildIndex(i);
+            int rightChildIndex = getRightChildIndex(i);
+
+        }
+
+        return null;
+    }
 }

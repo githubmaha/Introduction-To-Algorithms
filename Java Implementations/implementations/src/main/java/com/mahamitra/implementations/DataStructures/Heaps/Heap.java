@@ -12,10 +12,10 @@ public abstract class Heap {
     }
 
     protected Heap(int[] input) {
-        heap = new ArrayList<Integer>();
-        add(input);
+        heap = new ArrayList<Integer>(heapify(input));
     }
 
+    abstract protected List<Integer> heapify(int... input);
     abstract public List<Integer> add(int data);
     abstract public List<Integer> delete(int indexToDelete);
 
