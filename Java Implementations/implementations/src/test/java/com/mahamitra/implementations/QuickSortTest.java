@@ -15,12 +15,14 @@ public class QuickSortTest extends AbstractIntegerSortTest implements IntegerSor
     public void testRun() {
         // TODO: Need to see why it fails on sorted array
         QuickSort quickSort = new QuickSort("frontBack");
-        assertArrayEquals(sortedArray, quickSort.run(unSortedArray));
+        quickSort.run(unSortedArray);
+        assertArrayEquals(sortedArray, unSortedArray);
     }
 
     @Test
     public void testRunNotIntroToAlgoBook() {
         QuickSort quickSort = new QuickSort("introToAlgoBook");
-        assertArrayEquals(sortedArray, quickSort.run(unSortedArray));
+        quickSort.run(unSortedArray);
+        assertArrayEquals(sortedArray, unSortedArray);
     }
 }

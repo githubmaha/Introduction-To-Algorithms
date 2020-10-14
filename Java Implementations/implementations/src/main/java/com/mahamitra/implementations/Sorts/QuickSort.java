@@ -67,9 +67,8 @@ public class QuickSort implements SortAlgorithmWithIntegerInput{
     }
 
     @Override
-    public int[] run(int[] input) {
+    public void run(int[] input) {
         run(input, 0, input.length);
-        return input;
     }
 
 }

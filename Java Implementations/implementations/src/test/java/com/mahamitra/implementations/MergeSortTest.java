@@ -15,13 +15,15 @@ public class MergeSortTest extends AbstractIntegerSortTest implements IntegerSor
     @Test
     public void testRun() {
         MergeSort mergeSort = new MergeSort();
-        assertArrayEquals(sortedArray, mergeSort.run(unSortedArray));
+        mergeSort.run(unSortedArray);
+        assertArrayEquals(sortedArray, unSortedArray);
     }
 
     @Test
     public void testRunThread() {
         MergeSortThreadOptimize mergeSort = new MergeSortThreadOptimize();
-        assertArrayEquals(sortedArray, mergeSort.run(unSortedArray));
+        mergeSort.run(unSortedArray);
+        assertArrayEquals(sortedArray, unSortedArray);
     }
 
 }

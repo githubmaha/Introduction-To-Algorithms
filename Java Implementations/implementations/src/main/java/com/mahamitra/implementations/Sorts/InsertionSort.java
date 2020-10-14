@@ -13,7 +13,7 @@ import com.mahamitra.implementations.Utils.SortAlgorithmWithIntegerInput;
 public class InsertionSort implements SortAlgorithmWithIntegerInput {
 
     @Override
-    public int[] run(int[] input) {
+    public void run(int[] input) {
         for (int i = 0; i < input.length; ++i) {
             int key = input[i];
 
@@ -23,7 +23,5 @@ public class InsertionSort implements SortAlgorithmWithIntegerInput {
                 ArrayUtils.swap(input, j + 1, j--);
             }
         }
-
-        return input;
     }
 }

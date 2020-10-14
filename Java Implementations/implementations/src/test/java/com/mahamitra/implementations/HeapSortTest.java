@@ -14,7 +14,8 @@ public class HeapSortTest extends AbstractIntegerSortTest implements IntegerSort
     @Test
     public void testRun() {
         HeapSort heapSort = new HeapSort();
-        assertArrayEquals(sortedArray, heapSort.run(unSortedArray));
+        heapSort.run(unSortedArray);
+        assertArrayEquals(sortedArray, unSortedArray);
     }
 
 }

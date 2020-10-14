@@ -13,30 +13,38 @@ import com.mahamitra.implementations.Utils.SortAlgorithmWithIntegerInput;
  */
 public class MergeSort implements SortAlgorithmWithIntegerInput {
 
-    protected int[] merge(int[] arr1, int[] arr2) {
-        int[] merged = new int[arr1.length + arr2.length];
+    protected void merge(int[] input, int start, int end) {
+        int middle = (end + start) / 2;
+        int[] half1 = Arrays.copyOfRange(input, start, middle + 1);
+        int[] half2 = Arrays.copyOfRange(input, middle + 1, end + 1);
 
         int index1 = 0;
         int index2 = 0;
 
-        for(int i = 0; i < merged.length; ++i) {
-            if (index2 >= arr2.length || (index1 < arr1.length && arr1[index1] < arr2[index2])) {
-                merged[i] = arr1[index1++];
+        for(int i = start; i <= end; ++i) {
+            if (index2 >= half2.length || (index1 < half1.length && half1[index1] < half2[index2])) {
+                input[i] = half1[index1++];
             } else {
-                merged[i] = arr2[index2++];
+                input[i] = half2[index2++];
             }
         }
+    }
 
-        return merged;
+    protected void run(int[] input, int start, int end) {
+        if (end == start) {
+            return;
+        }
+
+        int middle = (start + end) / 2;
+
+        run(input, start, middle);
+        run(input, middle + 1, end);
+        merge(input, start, end);
     }
 
     @Override
-    public int[] run(int[] input) {
-        if (input.length <= 1) {
-            return input;
-        }
-
-        return merge(run(Arrays.copyOfRange(input, 0, input.length / 2)), run(Arrays.copyOfRange(input, input.length / 2, input.length)));
+    public void run(int[] input) {
+        run(input, 0, input.length - 1);
     }
 
 }

@@ -14,6 +14,7 @@ public class InsertionSortTest extends AbstractIntegerSortTest implements Intege
    @Test
     public void testRun() {
         InsertionSort inspectionSort = new InsertionSort();
-        assertArrayEquals(sortedArray, inspectionSort.run(unSortedArray));
+        inspectionSort.run(unSortedArray);
+        assertArrayEquals(sortedArray, unSortedArray);
     }
 }

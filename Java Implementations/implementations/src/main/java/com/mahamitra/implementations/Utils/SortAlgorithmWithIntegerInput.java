@@ -5,5 +5,5 @@ package com.mahamitra.implementations.Utils;
  */
 public interface SortAlgorithmWithIntegerInput {
 
-    int[] run(int[] input);
+    void run(int[] input);
 }

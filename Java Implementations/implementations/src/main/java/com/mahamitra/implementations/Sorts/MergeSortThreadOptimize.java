@@ -1,34 +1,30 @@
 package com.mahamitra.implementations.Sorts;
 
-import java.util.Arrays;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class MergeSortThreadOptimize extends MergeSort {
-    ExecutorService pool = Executors.newFixedThreadPool(6);
 
     @Override
-    public int[] run(int[] input) {
-        if (input.length == 1) {
-            return input;
+    protected void run(int[] input, int start, int end) {
+        ExecutorService pool = Executors.newFixedThreadPool(6);
+
+        if (end == start) {
+            return;
         }
 
-        int halfIndex;
+        int middle = (start + end) / 2;
 
-        if (input.length % 2 == 0) {
-            halfIndex = input.length / 2;
-        } else {
-            halfIndex = (input.length / 2) + 1;
-        }
+        pool.submit(() -> run(input, start, middle));
+        pool.submit(() -> run(input, middle + 1, end));
 
+        pool.shutdown();
         try {
-            return pool.submit(() ->
-            merge(run(Arrays.copyOfRange(input, 0, halfIndex)), run(Arrays.copyOfRange(input, halfIndex, input.length)))).get();
-        } catch (InterruptedException | ExecutionException e) {
+            pool.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+        } catch (InterruptedException e) {
             e.printStackTrace();
-            return null;
         }
+        merge(input, start, end);
     }
-
 }
