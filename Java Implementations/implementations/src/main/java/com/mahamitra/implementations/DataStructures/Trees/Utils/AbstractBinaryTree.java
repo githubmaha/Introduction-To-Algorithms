@@ -1,6 +1,5 @@
 package com.mahamitra.implementations.DataStructures.Trees.Utils;
 
-import java.security.InvalidAlgorithmParameterException;
 import java.util.List;
 
 import com.mahamitra.implementations.DataStructures.Trees.SimpleBinaryTree.BinaryTreeNode;
@@ -11,7 +10,7 @@ import lombok.Getter;
 public abstract class AbstractBinaryTree {
     protected BinaryTreeNode root;
 
-    abstract public <T> List<T> getArrayRepresentation(Class<T> type) throws InvalidAlgorithmParameterException;
+    abstract public <T> List<T> getArrayRepresentation(Class<T> type);
 
     public void swapData(BinaryTreeNode node1, BinaryTreeNode node2) {
         int temp = node1.getData();

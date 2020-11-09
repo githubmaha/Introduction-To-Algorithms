@@ -22,27 +22,27 @@ public class QuickSort implements SortAlgorithmWithIntegerInput{
     private int pivotSortIntroToAlgo(int[] arr, int start, int end) {
         int lowerBound = start;
 
-        for(int upperBound = start; upperBound < end - 1; ++upperBound) {
-            if (arr[upperBound] < arr[end - 1]) {
+        for(int upperBound = start; upperBound < end; ++upperBound) {
+            if (arr[upperBound] <= arr[end]) {
                 ArrayUtils.swap(arr, lowerBound++, upperBound);
             }
         }
 
-        ArrayUtils.swap(arr, lowerBound, end - 1);
+        ArrayUtils.swap(arr, lowerBound, end);
 
         return lowerBound;
     }
 
     private int pivotSortFrontBack(int[] arr, int start, int end) {
         int lowerBound = start + 1;
-        int upperBound = end - 1;
+        int upperBound = end;
 
-        while (lowerBound < upperBound) {
+        while (lowerBound <= upperBound) {
             if(arr[lowerBound] > arr[start] && arr[upperBound] < arr[start]) {
                 ArrayUtils.swap(arr, lowerBound, upperBound);
             }
 
-            while (lowerBound < end && arr[lowerBound] < arr[start]) {
+            while (lowerBound <= end && arr[lowerBound] < arr[start]) {
                 ++lowerBound;
             }
 
@@ -62,13 +62,13 @@ public class QuickSort implements SortAlgorithmWithIntegerInput{
         }
 
         int pivot = pivotAlgorithm.getPivot(input, start, end);
-        run(input, start, pivot);
+        run(input, start, pivot - 1);
         run(input, pivot + 1, end);
     }
 
     @Override
     public void run(int[] input) {
-        run(input, 0, input.length);
+        run(input, 0, input.length - 1);
     }
 
 }
